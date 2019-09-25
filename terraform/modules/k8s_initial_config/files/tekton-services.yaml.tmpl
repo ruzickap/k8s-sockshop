@@ -1,0 +1,44 @@
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
+metadata:
+  name: tekton-dashboard-gateway
+  namespace: tekton-pipelines
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http-tekton-dashboard
+      protocol: HTTP
+    hosts:
+    - tekton-dashboard.${dnsName}
+  - port:
+      number: 443
+      name: https-tekton-dashboard
+      protocol: HTTPS
+    hosts:
+    - tekton-dashboard.${dnsName}
+    tls:
+      credentialName: ingress-cert-${letsencrypt_environment}
+      mode: SIMPLE
+      privateKey: sds
+      serverCertificate: sds
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tekton-dashboard-https-virtual-service
+  namespace: tekton-pipelines
+spec:
+  hosts:
+  - tekton-dashboard.${dnsName}
+  gateways:
+  - tekton-dashboard-gateway
+  http:
+  - route:
+    - destination:
+        host: tekton-dashboard.tekton-pipelines.svc.cluster.local
+        port:
+          number: 9097
