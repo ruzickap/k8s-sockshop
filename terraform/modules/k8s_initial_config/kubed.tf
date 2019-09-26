@@ -17,6 +17,6 @@ resource "helm_release" "kubed" {
   }
   set {
     name  = "config.clusterName"
-    value = "${var.full_kubernetes_cluster_name}"
+    value = "${var.prefix}-${var.kubernetes_cluster_name}-${replace(var.dns_zone_name, ".", "-")}"
   }
 }

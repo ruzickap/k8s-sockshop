@@ -10,7 +10,18 @@ resource "kubernetes_secret" "docker-config" {
     namespace = kubernetes_namespace.flux.id
   }
   data = {
-    ".dockerconfigjson" = "{\"auths\": {\"pruzickak8smyexampledev.azurecr.io\": {\"username\": \"${var.client_id}\", \"password\": \"${var.client_secret}\",\"auth\": \"${base64encode("${var.client_id}:${var.client_secret}")}\"}}}"
+    "config.json" = "{\"auths\": {\"${var.prefix}${var.kubernetes_cluster_name}${replace(var.dns_zone_name, ".", "")}.azurecr.io\": {\"username\": \"${var.client_id}\", \"password\": \"${var.client_secret}\",\"auth\": \"${base64encode("${var.client_id}:${var.client_secret}")}\"}}}"
+  }
+  type = "kubernetes.io/dockerconfigjson"
+}
+
+resource "kubernetes_secret" "docker-config-default" {
+  metadata {
+    name      = "docker-config"
+    namespace = "default"
+  }
+  data = {
+    ".dockerconfigjson" = "{\"auths\": {\"${var.prefix}${var.kubernetes_cluster_name}${replace(var.dns_zone_name, ".", "")}.azurecr.io\": {\"username\": \"${var.client_id}\", \"password\": \"${var.client_secret}\",\"auth\": \"${base64encode("${var.client_id}:${var.client_secret}")}\"}}}"
   }
   type = "kubernetes.io/dockerconfigjson"
 }
@@ -41,7 +52,7 @@ data "helm_repository" "flux" {
 }
 
 resource "helm_release" "flux" {
-  depends_on = [null_resource.flux_crds, kubernetes_cluster_role_binding.tiller]
+  depends_on = [null_resource.flux_crds, kubernetes_cluster_role_binding.tiller, kubernetes_secret.docker-config]
   name       = "flux"
   repository = "${data.helm_repository.flux.metadata.0.name}"
   chart      = "fluxcd/flux"

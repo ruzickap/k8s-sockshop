@@ -12,3 +12,5 @@ tmp
 node_modules
 # Ignore Terraform
 .terraform
+# Ignore kubeconfig files
+terraform/kubeconfig_*

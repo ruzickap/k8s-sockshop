@@ -13,15 +13,14 @@ export KUBECONFIG="$PWD/$(ls terraform/kubeconfig_*)"
 Remove DNS records:
 
 ```bash
-kubectl delete gateways.networking.istio.io --all --all-namespaces
-kubectl delete pod -n external-dns --all
-sleep 10
+kubectl delete gateways.networking.istio.io -n sock-shop sockshop-gateway
 ```
 
 Delete GitHub repository:
 
 ```bash
 hub delete -y ruzickap/k8s-flux-repository
+hub delete -y ruzickap/front-end
 ```
 
 Output:

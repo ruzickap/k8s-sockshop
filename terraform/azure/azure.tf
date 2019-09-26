@@ -47,7 +47,7 @@ module "k8s_initial_config" {
   cloud_platform               = var.cloud_platform
   dns_zone_name                = var.dns_zone_name
   kubeconfig                   = local_file.file.filename
-  full_kubernetes_cluster_name = azurerm_kubernetes_cluster.kubernetes_cluster.name
+  kubernetes_cluster_name      = var.kubernetes_cluster_name
   letsencrypt_environment      = var.letsencrypt_environment
   prefix                       = var.prefix
   resource_group_name_dns      = var.resource_group_name_dns

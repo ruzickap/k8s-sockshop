@@ -79,10 +79,24 @@ resource "helm_release" "external-dns" {
   }
   set {
     name  = "sources"
-    value = "{istio-gateway,service}"
+    value = "{istio-gateway}"
   }
   set {
     name  = "txtOwnerId"
-    value = "${var.full_kubernetes_cluster_name}"
+    value = "${var.prefix}-${var.kubernetes_cluster_name}-${replace(var.dns_zone_name, ".", "-")}"
+  }
+}
+
+# Wait few seconds before deleting the external-dns to let it remove records from DNS
+resource "null_resource" "external-dns-sleep" {
+  depends_on = [helm_release.external-dns]
+
+  provisioner "local-exec" {
+    command = "exit 0"
+  }
+
+  provisioner "local-exec" {
+    when = "destroy"
+    command = "sleep 10"
   }
 }

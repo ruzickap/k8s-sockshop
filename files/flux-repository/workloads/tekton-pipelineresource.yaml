@@ -1,0 +1,24 @@
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: podinfo-project-git
+  namespace: default
+spec:
+  type: git
+  params:
+    - name: url
+      # value: https://github.com/microservices-demo/front-end
+      value: https://github.com/ruzickap/front-end
+    - name: revision
+      value: master
+---
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: podinfo-project-image
+spec:
+  type: image
+  params:
+    - name: url
+      value: pruzickak8smyexampledev.azurecr.io/library/front-end:0.3.12

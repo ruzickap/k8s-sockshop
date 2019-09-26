@@ -48,7 +48,7 @@ DEMO_PROMPT="${GREEN}➜ ${CYAN}$ "
 
 [ ! -d .git ] && git clone --quiet https://github.com/ruzickap/k8s-sockshop && cd k8s-sockshop
 
-sed -n '/^```bash$/,/^```$/p;/^-----$/p' docs/part-0{1,2}/README.md \
+sed -n '/^```bash$/,/^```$/p;/^-----$/p' docs/part-0{1..3}/README.md \
 | \
 sed \
   -e 's/^-----$/\

@@ -19,3 +19,4 @@
 
 * [Part 01 - Create AKS cluster in Azure](part-01/README.md)
 * [Part 02 - Install Flux](part-02/README.md)
+* [Part 03 - Sockshop](part-03/README.md)

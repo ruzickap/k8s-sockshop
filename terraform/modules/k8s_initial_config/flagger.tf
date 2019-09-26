@@ -63,7 +63,7 @@ data "template_file" "flagger-grafana-services" {
 }
 
 resource "null_resource" "flagger-grafana-services" {
-  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label]
+  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label, null_resource.external-dns-sleep]
 
   triggers = {
     template_file_flagger-grafana_sha1 = "${sha1("${data.template_file.flagger-grafana-services.rendered}")}"

@@ -157,7 +157,7 @@ data "template_file" "istio-services" {
 }
 
 resource "null_resource" "istio-services" {
-  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label]
+  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label, null_resource.external-dns-sleep]
 
   triggers = {
     template_file_istio-services_sha1 = "${sha1("${data.template_file.istio-services.rendered}")}"

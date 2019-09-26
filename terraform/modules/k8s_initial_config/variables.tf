@@ -35,9 +35,9 @@ variable "flux_git_url" {
   default = "git@github.com:ruzickap/k8s-flux-repository"
 }
 
-
-variable "full_kubernetes_cluster_name" {
-  default = "k8s-mytest"
+variable "kubernetes_cluster_name" {
+  description = "Name for the Kubernetes cluster (will be used as part of the doman) [k8s.myexample.dev]"
+  default     = "k8s"
 }
 
 variable "helm_cert-manager_version" {

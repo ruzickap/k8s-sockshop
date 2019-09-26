@@ -93,3 +93,48 @@ Add the ssh key to the GitHub "[https://github.com/ruzickap/k8s-flux-repository]
 "Flux logo")
 
 -----
+
+## Build container image
+
+Fork the `front-end` repository:
+
+```bash
+hub -C tmp clone microservices-demo/front-end
+hub -C tmp/front-end fork
+```
+
+Prepare Tekton pipelines:
+
+```bash
+envsubst < files/flux-repository/workloads/tekton-pipelineresource.yaml > tmp/k8s-flux-repository/workloads/tekton-pipelineresource.yaml
+envsubst < files/flux-repository/workloads/tekton-task-pipeline.yaml    > tmp/k8s-flux-repository/workloads/tekton-task-pipeline.yaml
+git -C tmp/k8s-flux-repository add --verbose .
+git -C tmp/k8s-flux-repository commit -m "Add pipelines and pipelineresources"
+git -C tmp/k8s-flux-repository push -q
+sleep 15
+fluxctl sync
+```
+
+Initiate `PipelineRun` which builds container image form git repository:
+
+```bash
+envsubst < files/flux-repository/workloads/tekton-pipelinerun.yaml > tmp/k8s-flux-repository/workloads/tekton-pipelinerun.yaml
+git -C tmp/k8s-flux-repository add --verbose .
+git -C tmp/k8s-flux-repository commit -m "Add pipeline and initiate build process"
+git -C tmp/k8s-flux-repository push -q
+fluxctl sync
+```
+
+Check if the build of docker image was completed:
+
+```bash
+kubectl wait --timeout=30m --for=condition=Succeeded pipelineruns/podinfo-build-docker-image-from-git-pipelinerun
+kubectl get pipelineruns podinfo-build-docker-image-from-git-pipelinerun
+```
+
+Output:
+
+```text
+NAME                                              SUCCEEDED   REASON      STARTTIME   COMPLETIONTIME
+podinfo-build-docker-image-from-git-pipelinerun   True        Succeeded   7m48s       2m30s
+```

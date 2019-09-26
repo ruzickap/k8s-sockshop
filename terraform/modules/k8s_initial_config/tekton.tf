@@ -32,7 +32,7 @@ data "template_file" "tekton_dashboard-services" {
 }
 
 resource "null_resource" "tekton_dashboard-services" {
-  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label]
+  depends_on = [helm_release.istio, null_resource.cert-manager-certificate-label, null_resource.external-dns-sleep]
 
   triggers = {
     template_file_tekton_dashboard-services_sha1 = "${sha1("${data.template_file.tekton_dashboard-services.rendered}")}"
