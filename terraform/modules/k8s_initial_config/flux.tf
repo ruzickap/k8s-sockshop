@@ -4,13 +4,13 @@ resource "kubernetes_namespace" "flux" {
   }
 }
 
-resource "kubernetes_secret" "docker-config" {
+resource "kubernetes_secret" "docker-config-flux" {
   metadata {
     name      = "docker-config"
     namespace = kubernetes_namespace.flux.id
   }
   data = {
-    "config.json" = "{\"auths\": {\"${var.prefix}${var.kubernetes_cluster_name}${replace(var.dns_zone_name, ".", "")}.azurecr.io\": {\"username\": \"${var.client_id}\", \"password\": \"${var.client_secret}\",\"auth\": \"${base64encode("${var.client_id}:${var.client_secret}")}\"}}}"
+    ".dockerconfigjson" = "{\"auths\": {\"${var.prefix}${var.kubernetes_cluster_name}${replace(var.dns_zone_name, ".", "")}.azurecr.io\": {\"username\": \"${var.client_id}\", \"password\": \"${var.client_secret}\",\"auth\": \"${base64encode("${var.client_id}:${var.client_secret}")}\"}}}"
   }
   type = "kubernetes.io/dockerconfigjson"
 }
@@ -52,7 +52,7 @@ data "helm_repository" "flux" {
 }
 
 resource "helm_release" "flux" {
-  depends_on = [null_resource.flux_crds, kubernetes_cluster_role_binding.tiller, kubernetes_secret.docker-config]
+  depends_on = [null_resource.flux_crds, kubernetes_cluster_role_binding.tiller, kubernetes_secret.docker-config-flux]
   name       = "flux"
   repository = "${data.helm_repository.flux.metadata.0.name}"
   chart      = "fluxcd/flux"
@@ -81,7 +81,7 @@ resource "helm_release" "flux" {
   }
   set {
     name  = "registry.dockercfg.configFileName"
-    value = "/dockercfg/config.json"
+    value = "/dockercfg/.dockerconfigjson"
   }
   set {
     name  = "registry.dockercfg.enabled"
