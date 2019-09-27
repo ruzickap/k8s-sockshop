@@ -77,7 +77,7 @@ Obtain the ssh public key through `fluxctl`:
 
 ```bash
 fluxctl identity
-if [ -x /usr/bin/chromium-browser ]; then chromium-browser https://github.com/ruzickap/k8s-flux-repository/settings/keys/new & fi
+if [ -x /usr/bin/chromium-browser ]; then chromium-browser https://github.com/ruzickap/k8s-flux-repository/settings/keys/new &> /dev/null & fi
 ```
 
 Output:

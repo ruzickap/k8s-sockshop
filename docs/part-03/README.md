@@ -16,9 +16,9 @@ Check the commit and open the `index.html` in the web browser:
 ```bash
 if [ -x /usr/bin/chromium-browser ]; then
   chromium-browser \
-    https://github.com/ruzickap/k8s-flux-repository/blob/master/workloads/sockshop.yaml#L201-L338 \
+    https://github.com/ruzickap/k8s-flux-repository/blob/master/workloads/sockshop.yaml#L201-L337 \
     https://github.com/ruzickap/front-end/edit/master/public/index.html \
-  &
+  &> /dev/null &
 fi
 ```
 
@@ -26,10 +26,10 @@ Open few tabs in web browser:
 
 ```bash
 if [ -x /usr/bin/falkon ]; then
-  falkon "https://sockshop.${MY_DOMAIN}" &
-  falkon "https://tekton-dashboard.${MY_DOMAIN}/#/pipelineruns" &
-  falkon "https://flagger-grafana.${MY_DOMAIN}/d/flagger-istio/istio-canary?orgId=1&refresh=10s&var-namespace=sock-shop&var-primary=front-end-primary&var-canary=front-end-primary" &
-  falkon "https://kiali.${MY_DOMAIN}/console/graph/namespaces/?edges=requestsPercentage&graphType=app&namespaces=sock-shop&unusedNodes=false&injectServiceNodes=true&pi=15000&duration=60&layout=dagre" &
+  falkon "https://sockshop.${MY_DOMAIN}" &> /dev/null &
+  falkon "https://tekton-dashboard.${MY_DOMAIN}/#/pipelineruns" &> /dev/null &
+  falkon "https://flagger-grafana.${MY_DOMAIN}/d/flagger-istio/istio-canary?orgId=1&refresh=5s" &> /dev/null &
+  falkon "https://kiali.${MY_DOMAIN}/console/graph/namespaces/?edges=requestsPercentage&graphType=app&namespaces=sock-shop&unusedNodes=false&injectServiceNodes=true&pi=15000&duration=60&layout=dagre" &> /dev/null &
 fi
 ```
 
@@ -41,7 +41,7 @@ and change something visible on the first page.
 Initiate build of a new container:
 
 ```bash
-sed -i 's/podinfo-build-docker-image-from-git-pipelinerun/podinfo-build-docker-image-from-git-pipelinerun-2/' tmp/k8s-flux-repository/workloads/tekton-pipelinerun.yaml
+sed 's/podinfo-build-docker-image-from-git-pipelinerun/podinfo-build-docker-image-from-git-pipelinerun-2/' tmp/k8s-flux-repository/workloads/tekton-pipelinerun.yaml > tmp/k8s-flux-repository/workloads/tekton-pipelinerun-2.yaml
 sed -i 's/0.3.12/0.4.0/' tmp/k8s-flux-repository/workloads/tekton-pipelineresource.yaml
 git -C tmp/k8s-flux-repository diff
 git -C tmp/k8s-flux-repository add --verbose .
