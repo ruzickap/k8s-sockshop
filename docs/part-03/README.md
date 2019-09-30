@@ -297,14 +297,14 @@ send-keys "\
   sleep 5 ;
   done
 " C-m \; \
-split-window -h -p 28 \; \
+split-window -h -p 29 \; \
 send-keys "while true; do kubectl get -n sock-shop canary/sockshop -o json | jq .status; sleep 2; done" C-m \; \
 split-window -v -p 50 \; \
 send-keys "while true; do kubectl -n sock-shop get canaries sockshop; sleep 3; done" C-m \; \
 select-pane -t 0 \; \
 split-window -v -p 50 \; \
 send-keys "kubectl -n istio-system logs deployment/flagger -f | jq .msg" C-m \; \
-split-window -h -p 17 \; \
-send-keys "while true; do curl -sk https://sockshop.${MY_DOMAIN}/ | sed -n \"s@.*>\(We love.*\!\)<.*@\1@p\"; sleep 3; done" C-m \; \
+split-window -h -p 16 \; \
+send-keys "while true; do curl -sk https://sockshop.${MY_DOMAIN}/ | sed -n \"s@.*>\(We.*socks\!\)<.*@\1@p\"; sleep 3; done" C-m \; \
 set-option status off
 ```

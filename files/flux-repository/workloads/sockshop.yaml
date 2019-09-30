@@ -307,18 +307,6 @@ spec:
     # canary increment step
     # percentage (0-100)
     stepWeight: 5
-    # Prometheus checks
-    metrics:
-    - name: request-success-rate
-      # minimum req success rate (non 5xx responses)
-      # percentage (0-100)
-      threshold: 99
-      interval: 1m
-    - name: request-duration
-      # maximum req duration P99
-      # milliseconds
-      threshold: 500
-      interval: 30s
 ---
 # apiVersion: v1
 # kind: Service
