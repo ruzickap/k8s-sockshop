@@ -41,7 +41,7 @@ variable "kubernetes_cluster_name" {
 }
 
 variable "helm_cert-manager_version" {
-  default = "v0.10.0"
+  default = "v0.10.1"
 }
 
 variable "helm_external-dns_version" {
@@ -61,7 +61,7 @@ variable "helm_flagger-grafana_version" {
 }
 
 variable "helm_istio_version" {
-  default = "1.3.0"
+  default = "1.3.1"
 }
 
 variable "helm_kubed_version" {
