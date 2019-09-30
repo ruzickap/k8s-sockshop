@@ -3,7 +3,7 @@
 Flux Architecture:
 
 ![Flux Architecture](https://github.com/fluxcd/flux/raw/18e5174581f44ed8c9a881dd5071179eed1ebf4d/docs/_files/flux-cd-diagram.png
- "Flux Architecture")
+"Flux Architecture")
 
 Create git repository which will be used by Flux in GitHub:
 

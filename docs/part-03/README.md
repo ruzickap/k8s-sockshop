@@ -1,5 +1,10 @@
 # Sockshop
 
+Sockshop Architecture:
+
+![Sockshop Architecture](https://github.com/microservices-demo/microservices-demo.github.io/raw/40d8170161d2f81cc6524f8aa137c8e9f9131ecd/assets/Architecture.png
+"Sockshop Architecture")
+
 Deploy Sockshop:
 
 ```bash
