@@ -42,7 +42,7 @@ variable_azure() {
   export TF_VAR_resource_group_name_dns="${TF_VAR_resource_group_name_dns:-pruzicka-k8s-test-dns}"
   export TF_VAR_subscription_id="${ARM_SUBSCRIPTION_ID}"
   export TF_VAR_tenant_id="${ARM_TENANT_ID}"
-  export TF_VAR_vm_count="${TF_VAR_vm_count:-3}"
+  export TF_VAR_vm_count="${TF_VAR_vm_count:-4}"
   export TF_VAR_vm_size="${TF_VAR_vm_size:-Standard_D2_v3}"
   export STORAGE_ACCOUNT_NAME="${TF_VAR_prefix}${TF_VAR_kubernetes_cluster_name}tf"
   export CONTAINER_NAME="${TF_VAR_resource_group_name}-tfstate"
