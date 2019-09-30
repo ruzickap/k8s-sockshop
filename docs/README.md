@@ -1,4 +1,4 @@
-# Kubernetes + Flagger + Flux + Istio + Sockshop
+# Kubernetes + Flagger + Flux + Sockshop
 
 [![Build Status](https://travis-ci.com/ruzickap/k8s-sockshop.svg?branch=master)](https://travis-ci.com/ruzickap/k8s-sockshop)
 

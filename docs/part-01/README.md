@@ -240,6 +240,10 @@ Output:
 }
 ```
 
+This is what you should see inside the Azure Portal:
+
+![Azure DNS](./azure_dns.png "Azure DNS")
+
 Check if DNS servers are forwarding queries to Azure DNS server:
 
 ```shell

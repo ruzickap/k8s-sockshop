@@ -268,7 +268,9 @@ Events:  <none>
 ```
 
 Modify the [https://github.com/ruzickap/front-end/edit/master/public/index.html](https://github.com/ruzickap/front-end/edit/master/public/index.html)
-and change something visible on the first page.
+and replace "We love socks!" by "We really love socks!".
+
+![GitHub edit](./github_edit.png "GitHub edit")
 
 -----
 
@@ -286,6 +288,10 @@ fluxctl sync
 
 Open the Tekton Dashboard page [https://tekton-dashboard.myexample.dev](https://tekton-dashboard.myexample.dev)
 to see the build process.
+
+You should see a new PipelineRun:
+
+![New PipelineRun](./tekton_dashboard.png "New PipelineRun")
 
 Run tmux session with monitoring commands:
 
@@ -305,6 +311,10 @@ select-pane -t 0 \; \
 split-window -v -p 50 \; \
 send-keys "kubectl -n istio-system logs deployment/flagger -f | jq .msg" C-m \; \
 split-window -h -p 16 \; \
-send-keys "while true; do curl -sk https://sockshop.${MY_DOMAIN}/ | sed -n \"s@.*>\(We.*socks\!\)<.*@\1@p\"; sleep 3; done" C-m \; \
+send-keys "while true; do curl -sk https://sockshop.${MY_DOMAIN}/ | sed -n \"s@.*>\(We.*socks\!\)<.*@\1@p\"; sleep 2; done" C-m \; \
 set-option status off
 ```
+
+New version of Sockshop:
+
+![New Sockshop](./new_sockshop.png "New Sockshop")

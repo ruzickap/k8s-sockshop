@@ -7,6 +7,7 @@ k8s
 kubectl
 Kubernetes
 nameservers
+PipelineRun
 Sockshop
 ssh
 Tekton
