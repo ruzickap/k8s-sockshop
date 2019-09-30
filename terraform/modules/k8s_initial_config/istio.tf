@@ -25,7 +25,7 @@ resource "helm_release" "istio-init" {
 resource "null_resource" "istio-init-delay" {
   depends_on = [helm_release.istio-init]
   provisioner "local-exec" {
-    command = "sleep 100"
+    command = "sleep 120"
   }
 }
 
