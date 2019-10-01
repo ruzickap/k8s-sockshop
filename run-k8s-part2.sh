@@ -70,6 +70,7 @@ if [ "$#" -eq 0 ]; then
 
   export KUBECONFIG="$PWD/$(ls terraform/kubeconfig_*)"
   export FLUX_FORWARD_NAMESPACE=flux
+  export FLUX_TIMEOUT="30m0s"
 
   if [ -z ${ARM_CLIENT_ID} ] || [ -z ${ARM_CLIENT_SECRET} ] || [ -z ${ARM_SUBSCRIPTION_ID} ] || [ -z ${ARM_TENANT_ID} ]; then
     echo -e "\n*** One of the mandatory variables is not set !!\n";
