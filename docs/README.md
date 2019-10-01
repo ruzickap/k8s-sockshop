@@ -4,6 +4,8 @@
 
 * GitHub repository: [https://github.com/ruzickap/k8s-sockshop](https://github.com/ruzickap/k8s-sockshop)
 * Web Pages: [https://ruzickap.github.io/k8s-sockshop](https://ruzickap.github.io/k8s-sockshop)
+* Asciinema: [https://asciinema.org/a/271808](https://asciinema.org/a/271808)
+* YouTube: [https://youtu.be/Yz2v_p7GTsg](https://youtu.be/Yz2v_p7GTsg)
 
 ## Requirements
 
