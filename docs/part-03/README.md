@@ -110,8 +110,8 @@ Events:
   Normal   Synced  81s                   flagger  Initialization done! sockshop.sock-shop
 ```
 
-The original deployment `podinfo` doesn't have any pods now and new deployment
-`podinfo-primary` was created by Flagger which takes care about the traffic:
+The original deployment `front-end` doesn't have any pods now and new deployment
+`front-end-primary` was created by Flagger which takes care about the traffic:
 
 ```bash
 kubectl get deployment -n sock-shop
