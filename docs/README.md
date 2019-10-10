@@ -9,8 +9,8 @@
 
 ## Requirements
 
-* [awscli](https://aws.amazon.com/cli/)
-* [AWS IAM Authenticator for Kubernetes](https://github.com/kubernetes-sigs/aws-iam-authenticator)
+* [az](https://docs.microsoft.com/en-us/cli/azure/)
+* [Azure account](https://azure.microsoft.com/account/)
 * [AWS account](https://aws.amazon.com/account/)
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 * [terraform](https://www.terraform.io/)

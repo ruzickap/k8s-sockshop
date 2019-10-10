@@ -14,7 +14,7 @@ The `LETSENCRYPT_ENVIRONMENT` variable should be one of:
 
 ```bash
 export CLOUD_PLATFORM="${CLOUD_PLATFORM:-azure}"
-if [ "$CLOUD_PLATFORM" = "aws" ]; then export MY_DOMAIN=${MY_DOMAIN:-mylabs.dev}; fi
+if [ "$CLOUD_PLATFORM" = "aws" ]; then export   MY_DOMAIN=${MY_DOMAIN:-mylabs.dev}; fi
 if [ "$CLOUD_PLATFORM" = "azure" ]; then export MY_DOMAIN=${MY_DOMAIN:-myexample.dev}; fi
 export LETSENCRYPT_ENVIRONMENT=${LETSENCRYPT_ENVIRONMENT:-staging}
 echo "*** ${CLOUD_PLATFORM} | ${MY_DOMAIN} | ${LETSENCRYPT_ENVIRONMENT} ***"
