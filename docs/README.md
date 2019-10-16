@@ -1,6 +1,6 @@
 # Kubernetes + Flagger + Flux + Sockshop
 
-[![Build Status](https://travis-ci.com/ruzickap/k8s-sockshop.svg?branch=master)](https://travis-ci.com/ruzickap/k8s-sockshop)
+[![Build Status](https://github.com/ruzickap/k8s-sockshop/workflows/vuepress-build/badge.svg)](https://github.com/ruzickap/k8s-sockshop/actions?workflow=vuepress-build)
 
 * GitHub repository: [https://github.com/ruzickap/k8s-sockshop](https://github.com/ruzickap/k8s-sockshop)
 * Web Pages: [https://ruzickap.github.io/k8s-sockshop](https://ruzickap.github.io/k8s-sockshop)
