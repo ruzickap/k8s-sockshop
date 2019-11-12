@@ -42,18 +42,18 @@ resource "local_file" "file" {
 module "k8s_initial_config" {
   source = "../modules/k8s_initial_config"
 
-  client_id                    = var.client_id
-  client_secret                = var.client_secret
-  cloud_platform               = var.cloud_platform
-  dns_zone_name                = var.dns_zone_name
-  kubeconfig                   = local_file.file.filename
-  kubernetes_cluster_name      = var.kubernetes_cluster_name
-  letsencrypt_environment      = var.letsencrypt_environment
-  prefix                       = var.prefix
-  resource_group_name_dns      = var.resource_group_name_dns
-  resource_group_name          = var.resource_group_name
-  subscription_id              = var.subscription_id
-  tenant_id                    = var.tenant_id
+  client_id               = var.client_id
+  client_secret           = var.client_secret
+  cloud_platform          = var.cloud_platform
+  dns_zone_name           = var.dns_zone_name
+  kubeconfig              = local_file.file.filename
+  kubernetes_cluster_name = var.kubernetes_cluster_name
+  letsencrypt_environment = var.letsencrypt_environment
+  prefix                  = var.prefix
+  resource_group_name_dns = var.resource_group_name_dns
+  resource_group_name     = var.resource_group_name
+  subscription_id         = var.subscription_id
+  tenant_id               = var.tenant_id
 }
 
 resource "azurerm_container_registry" "acr" {

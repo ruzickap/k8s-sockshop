@@ -3,6 +3,12 @@ name: 'Terraform Pull Request Workflow'
 on:
   pull_request:
     paths:
+    - '.github/**'
+    - 'terraform/**'
+  push:
+    branches: [master]
+    paths:
+    - '.github/**'
     - 'terraform/**'
 
 jobs:
