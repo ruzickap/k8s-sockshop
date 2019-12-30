@@ -1,21 +1,20 @@
-name: 'Terraform Pull Request Workflow'
+name: terraform
 
 on:
   pull_request:
     paths:
-    - '.github/**'
-    - 'terraform/**'
+    - .github/workflows/terraform.yml
+    - terraform/**
   push:
     branches: [master]
     paths:
-    - '.github/**'
-    - 'terraform/**'
+    - .github/workflows/terraform.yml
+    - terraform/**
 
 jobs:
   terraform-check:
     name: 'Terraform Actions'
     runs-on: ubuntu-latest
-
     steps:
       - name: 'Checkout'
         uses: actions/checkout@v2
