@@ -13,23 +13,23 @@ spec:
         name: carts-db
     spec:
       containers:
-      - name: carts-db
-        image: mongo
-        ports:
-        - name: mongo
-          containerPort: 27017
-        securityContext:
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-              - SETGID
-              - SETUID
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: carts-db
+          image: mongo
+          ports:
+            - name: mongo
+              containerPort: 27017
+          securityContext:
+            capabilities:
+              drop:
+                - all
+              add:
+                - CHOWN
+                - SETGID
+                - SETUID
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -47,8 +47,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 27017
-    targetPort: 27017
+    - port: 27017
+      targetPort: 27017
   selector:
     name: carts-db
 ---
@@ -67,27 +67,27 @@ spec:
         name: carts
     spec:
       containers:
-      - name: carts
-        image: weaveworksdemos/carts:0.4.8
-        ports:
-         - containerPort: 80
-        env:
-         - name: ZIPKIN
-           value: zipkin.jaeger.svc.cluster.local
-         - name: JAVA_OPTS
-           value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: carts
+          image: weaveworksdemos/carts:0.4.8
+          ports:
+            - containerPort: 80
+          env:
+            - name: ZIPKIN
+              value: zipkin.jaeger.svc.cluster.local
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -105,8 +105,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: carts
 ---
@@ -125,16 +125,16 @@ spec:
         name: catalogue-db
     spec:
       containers:
-      - name: catalogue-db
-        image: weaveworksdemos/catalogue-db:0.3.0
-        env:
-          - name: MYSQL_ROOT_PASSWORD
-            value: fake_password
-          - name: MYSQL_DATABASE
-            value: socksdb
-        ports:
-        - name: mysql
-          containerPort: 3306
+        - name: catalogue-db
+          image: weaveworksdemos/catalogue-db:0.3.0
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: fake_password
+            - name: MYSQL_DATABASE
+              value: socksdb
+          ports:
+            - name: mysql
+              containerPort: 3306
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -148,8 +148,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 3306
-    targetPort: 3306
+    - port: 3306
+      targetPort: 3306
   selector:
     name: catalogue-db
 ---
@@ -168,19 +168,19 @@ spec:
         name: catalogue
     spec:
       containers:
-      - name: catalogue
-        image: weaveworksdemos/catalogue:0.3.5
-        ports:
-        - containerPort: 80
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
+        - name: catalogue
+          image: weaveworksdemos/catalogue:0.3.5
+          ports:
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -194,8 +194,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: catalogue
 ---
@@ -214,22 +214,22 @@ spec:
         name: front-end
     spec:
       containers:
-      - name: front-end
-        # image: weaveworksdemos/front-end:0.3.12
-        image: pruzickak8smyexampledev.azurecr.io/library/front-end:0.3.12
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-        ports:
-        - containerPort: 8079
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-          readOnlyRootFilesystem: true
+        - name: front-end
+          # image: weaveworksdemos/front-end:0.3.12
+          image: pruzickak8smyexampledev.azurecr.io/library/front-end:0.3.12
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+          ports:
+            - containerPort: 8079
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+            readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -242,23 +242,23 @@ spec:
   selector:
     istio: ingressgateway
   servers:
-  - port:
-      number: 80
-      name: http-sockshop
-      protocol: HTTP
-    hosts:
-    - sockshop.${MY_DOMAIN}
-  - port:
-      number: 443
-      name: https-sockshop
-      protocol: HTTPS
-    hosts:
-    - sockshop.${MY_DOMAIN}
-    tls:
-      credentialName: ingress-cert-${LETSENCRYPT_ENVIRONMENT}
-      mode: SIMPLE
-      privateKey: sds
-      serverCertificate: sds
+    - port:
+        number: 80
+        name: http-sockshop
+        protocol: HTTP
+      hosts:
+        - sockshop.${MY_DOMAIN}
+    - port:
+        number: 443
+        name: https-sockshop
+        protocol: HTTPS
+      hosts:
+        - sockshop.${MY_DOMAIN}
+      tls:
+        credentialName: ingress-cert-${LETSENCRYPT_ENVIRONMENT}
+        mode: SIMPLE
+        privateKey: sds
+        serverCertificate: sds
 ---
 apiVersion: flagger.app/v1alpha3
 kind: Canary
@@ -288,13 +288,13 @@ spec:
     portDiscovery: false
     # Istio gateways (optional)
     gateways:
-    - sockshop-gateway
+      - sockshop-gateway
       # remove the mesh gateway if the public host is
       # shared across multiple virtual services
-    # - mesh
-    # Istio virtual service host names (optional)
+      # - mesh
+      # Istio virtual service host names (optional)
     hosts:
-    - sockshop.${MY_DOMAIN}
+      - sockshop.${MY_DOMAIN}
   # define the canary analysis timing and KPIs
   canaryAnalysis:
     # schedule interval (default 60s)
@@ -318,9 +318,9 @@ spec:
 # spec:
 #   type: NodePort
 #   ports:
-#   - port: 80
-#     targetPort: 8079
-#     nodePort: 30001
+#     - port: 80
+#       targetPort: 8079
+#       nodePort: 30001
 #   selector:
 #     name: front-end
 ---
@@ -339,23 +339,23 @@ spec:
         name: orders-db
     spec:
       containers:
-      - name: orders-db
-        image: mongo
-        ports:
-        - name: mongo
-          containerPort: 27017
-        securityContext:
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-              - SETGID
-              - SETUID
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: orders-db
+          image: mongo
+          ports:
+            - name: mongo
+              containerPort: 27017
+          securityContext:
+            capabilities:
+              drop:
+                - all
+              add:
+                - CHOWN
+                - SETGID
+                - SETUID
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -373,8 +373,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 27017
-    targetPort: 27017
+    - port: 27017
+      targetPort: 27017
   selector:
     name: orders-db
 ---
@@ -393,27 +393,27 @@ spec:
         name: orders
     spec:
       containers:
-      - name: orders
-        image: weaveworksdemos/orders:0.4.7
-        env:
-         - name: ZIPKIN
-           value: zipkin.jaeger.svc.cluster.local
-         - name: JAVA_OPTS
-           value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
-        ports:
-        - containerPort: 80
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: orders
+          image: weaveworksdemos/orders:0.4.7
+          env:
+            - name: ZIPKIN
+              value: zipkin.jaeger.svc.cluster.local
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+          ports:
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -431,8 +431,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: orders
 ---
@@ -451,19 +451,19 @@ spec:
         name: payment
     spec:
       containers:
-      - name: payment
-        image: weaveworksdemos/payment:0.4.3
-        ports:
-        - containerPort: 80
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
+        - name: payment
+          image: weaveworksdemos/payment:0.4.3
+          ports:
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -477,8 +477,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: payment
 ---
@@ -497,10 +497,10 @@ spec:
         name: queue-master
     spec:
       containers:
-      - name: queue-master
-        image: weaveworksdemos/queue-master:0.3.1
-        ports:
-        - containerPort: 80
+        - name: queue-master
+          image: weaveworksdemos/queue-master:0.3.1
+          ports:
+            - containerPort: 80
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -516,8 +516,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: queue-master
 ---
@@ -536,20 +536,20 @@ spec:
         name: rabbitmq
     spec:
       containers:
-      - name: rabbitmq
-        image: rabbitmq:3.6.8
-        ports:
-        - containerPort: 5672
-        securityContext:
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-              - SETGID
-              - SETUID
-              - DAC_OVERRIDE
-          readOnlyRootFilesystem: true
+        - name: rabbitmq
+          image: rabbitmq:3.6.8
+          ports:
+            - containerPort: 5672
+          securityContext:
+            capabilities:
+              drop:
+                - all
+              add:
+                - CHOWN
+                - SETGID
+                - SETUID
+                - DAC_OVERRIDE
+            readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -563,8 +563,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 5672
-    targetPort: 5672
+    - port: 5672
+      targetPort: 5672
   selector:
     name: rabbitmq
 ---
@@ -583,27 +583,27 @@ spec:
         name: shipping
     spec:
       containers:
-      - name: shipping
-        image: weaveworksdemos/shipping:0.4.8
-        env:
-         - name: ZIPKIN
-           value: zipkin.jaeger.svc.cluster.local
-         - name: JAVA_OPTS
-           value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
-        ports:
-        - containerPort: 80
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: shipping
+          image: weaveworksdemos/shipping:0.4.8
+          env:
+            - name: ZIPKIN
+              value: zipkin.jaeger.svc.cluster.local
+            - name: JAVA_OPTS
+              value: -Xms64m -Xmx128m -XX:PermSize=32m -XX:MaxPermSize=64m -XX:+UseG1GC -Djava.security.egd=file:/dev/urandom
+          ports:
+            - containerPort: 80
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -621,8 +621,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: shipping
 ---
@@ -641,23 +641,23 @@ spec:
         name: user-db
     spec:
       containers:
-      - name: user-db
-        image: weaveworksdemos/user-db:0.4.0
-        ports:
-        - name: mongo
-          containerPort: 27017
-        securityContext:
-          capabilities:
-            drop:
-              - all
-            add:
-              - CHOWN
-              - SETGID
-              - SETUID
-          readOnlyRootFilesystem: true
-        volumeMounts:
-        - mountPath: /tmp
-          name: tmp-volume
+        - name: user-db
+          image: weaveworksdemos/user-db:0.4.0
+          ports:
+            - name: mongo
+              containerPort: 27017
+          securityContext:
+            capabilities:
+              drop:
+                - all
+              add:
+                - CHOWN
+                - SETGID
+                - SETUID
+            readOnlyRootFilesystem: true
+          volumeMounts:
+            - mountPath: /tmp
+              name: tmp-volume
       volumes:
         - name: tmp-volume
           emptyDir:
@@ -675,8 +675,8 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 27017
-    targetPort: 27017
+    - port: 27017
+      targetPort: 27017
   selector:
     name: user-db
 ---
@@ -695,22 +695,22 @@ spec:
         name: user
     spec:
       containers:
-      - name: user
-        image: weaveworksdemos/user:0.4.7
-        ports:
-        - containerPort: 80
-        env:
-        - name: MONGO_HOST
-          value: user-db:27017
-        securityContext:
-          runAsNonRoot: true
-          runAsUser: 10001
-          capabilities:
-            drop:
-              - all
-            add:
-              - NET_BIND_SERVICE
-          readOnlyRootFilesystem: true
+        - name: user
+          image: weaveworksdemos/user:0.4.7
+          ports:
+            - containerPort: 80
+          env:
+            - name: MONGO_HOST
+              value: user-db:27017
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            capabilities:
+              drop:
+                - all
+              add:
+                - NET_BIND_SERVICE
+            readOnlyRootFilesystem: true
       nodeSelector:
         beta.kubernetes.io/os: linux
 ---
@@ -724,7 +724,7 @@ metadata:
 spec:
   ports:
     # the port that this service should serve on
-  - port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
   selector:
     name: user
