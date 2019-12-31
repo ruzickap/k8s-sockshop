@@ -47,7 +47,7 @@ jobs:
         run: npm install -g markdown-spellcheck
 
       - name: Run mdspell
-        run: mdspell '**.md' --ignore-numbers --ignore-acronyms --report --en-gb
+        run: find . -type f -name "*.md" -exec mdspell --ignore-numbers --ignore-acronyms --report --en-gb {} \;
 
   vuepress-build-check-deploy:
     runs-on: ubuntu-18.04
