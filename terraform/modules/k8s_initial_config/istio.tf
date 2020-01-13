@@ -143,7 +143,7 @@ resource "null_resource" "istio-gateway" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "exit 0"
   }
 }
@@ -168,7 +168,7 @@ resource "null_resource" "istio-services" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "kubectl delete --kubeconfig=${var.kubeconfig} -f -<<EOF\n${data.template_file.istio-services.rendered}\nEOF"
   }
 }

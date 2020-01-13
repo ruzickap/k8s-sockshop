@@ -28,7 +28,7 @@ variable "flagger_version" {
 
 variable "flux_version" {
   description = "https://raw.githubusercontent.com/fluxcd/flux/helm-0.10.1/deploy-helm/flux-helm-release-crd.yaml"
-  default = "0.10.1"
+  default     = "0.10.1"
 }
 
 variable "flux_git_url" {

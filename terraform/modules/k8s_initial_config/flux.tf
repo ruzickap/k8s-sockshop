@@ -41,7 +41,7 @@ resource "null_resource" "flux_crds" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "exit 0"
   }
 }

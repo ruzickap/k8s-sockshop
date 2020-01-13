@@ -96,7 +96,7 @@ resource "null_resource" "external-dns-sleep" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "sleep 10"
   }
 }

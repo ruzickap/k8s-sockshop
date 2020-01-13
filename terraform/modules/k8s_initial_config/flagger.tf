@@ -12,7 +12,7 @@ resource "null_resource" "flagger_crds" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "exit 0"
   }
 }
@@ -74,7 +74,7 @@ resource "null_resource" "flagger-grafana-services" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "kubectl delete --kubeconfig=${var.kubeconfig} -f -<<EOF\n${data.template_file.flagger-grafana-services.rendered}\nEOF"
   }
 }

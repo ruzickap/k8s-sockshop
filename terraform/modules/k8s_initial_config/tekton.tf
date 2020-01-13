@@ -5,7 +5,7 @@ resource "null_resource" "tekton" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "exit 0"
   }
 }
@@ -18,7 +18,7 @@ resource "null_resource" "tekton_dashboard" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "kubectl delete --kubeconfig=${var.kubeconfig} -f https://github.com/tektoncd/dashboard/releases/download/${var.tekton_dashboard_version}/release.yaml"
   }
 }
@@ -43,7 +43,7 @@ resource "null_resource" "tekton_dashboard-services" {
   }
 
   provisioner "local-exec" {
-    when = "destroy"
+    when    = "destroy"
     command = "kubectl delete --kubeconfig=${var.kubeconfig} -f -<<EOF\n${data.template_file.tekton_dashboard-services.rendered}\nEOF"
   }
 }
