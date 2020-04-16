@@ -57,7 +57,7 @@ mkdir: created directory 'tmp/k8s-flux-repository/workloads'
  create mode 100644 README.md
 ```
 
-Install [fluxctl](https://docs.fluxcd.io/en/stable/references/fluxctl.html):
+Install [fluxctl](https://docs.fluxcd.io/en/stable/references/fluxctl/):
 
 ```bash
 if [ ! -x /usr/local/bin/fluxctl ]; then
