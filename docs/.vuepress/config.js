@@ -1,9 +1,9 @@
 module.exports = {
-  title: "Kubernetes + Flagger + Flux + Istio + Sockshop",
-  description: "Kubernetes + Flagger + Flux + Istio + Sockshop",
+  title: 'Kubernetes + Flagger + Flux + Istio + Sockshop',
+  description: 'Kubernetes + Flagger + Flux + Istio + Sockshop',
   base: '/k8s-sockshop/',
   head: [
-    ['link', { rel: "icon", href: "https://kubernetes.io/images/favicon.png" }]
+    ['link', { rel: 'icon', href: 'https://kubernetes.io/images/favicon.png' }]
   ],
   themeConfig: {
     displayAllHeaders: true,
@@ -18,7 +18,7 @@ module.exports = {
         text: 'Links',
         items: [
           { text: 'Flux', link: 'https://fluxcd.io' },
-          { text: 'Flagger', link: 'https://flagger.app' },
+          { text: 'Flagger', link: 'https://flagger.app' }
         ]
       }
     ],
@@ -26,7 +26,7 @@ module.exports = {
       '/',
       '/part-01/',
       '/part-02/',
-      '/part-03/',
+      '/part-03/'
     ]
   },
   plugins: [
