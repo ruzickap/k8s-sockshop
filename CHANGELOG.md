@@ -1,5 +1,20 @@
 # Changelog
 
+## [v0.1.0](https://github.com/ruzickap/k8s-sockshop/compare/v0.0.1...v0.1.0) (2020-09-17)
+
+- Add new line to periodic-broken-link-checks.yml [`#62`](https://github.com/ruzickap/k8s-sockshop/pull/62)
+- Replace markdown linter [`#50`](https://github.com/ruzickap/k8s-sockshop/pull/50)
+- Add super-linter + fix related issues [`#45`](https://github.com/ruzickap/k8s-sockshop/pull/45)
+- Fix GH variables to pass the tests [`#44`](https://github.com/ruzickap/k8s-sockshop/pull/44)
+- Move to GitHub's Dependabot (version 2) [`#37`](https://github.com/ruzickap/k8s-sockshop/pull/37)
+- Use shell-linter in latest version [`#32`](https://github.com/ruzickap/k8s-sockshop/pull/32)
+- Move CHANGELOG to the top level directory [`#30`](https://github.com/ruzickap/k8s-sockshop/pull/30)
+- Bump @vuepress/plugin-back-to-top from 1.4.1 to 1.5.0 [`#27`](https://github.com/ruzickap/k8s-sockshop/pull/27)
+- Bump @vuepress/plugin-medium-zoom from 1.4.1 to 1.5.0 [`#26`](https://github.com/ruzickap/k8s-sockshop/pull/26)
+- Bump vuepress from 1.4.1 to 1.5.0 [`#28`](https://github.com/ruzickap/k8s-sockshop/pull/28)
+- Ignore CHANGELOG.md when doing markdown checks [`#29`](https://github.com/ruzickap/k8s-sockshop/pull/29)
+- CHANGELOG file update [`#25`](https://github.com/ruzickap/k8s-sockshop/pull/25)
+
 ## v0.0.1 (2020-05-11)
 
 - Replace deployment name (podinfo -&gt; front-end) [`#2`](https://github.com/ruzickap/k8s-sockshop/pull/2)
@@ -38,7 +53,6 @@
 - Replace GITHUB_TOKEN by ACTIONS_DEPLOY_KEY [`636f4f6`](https://github.com/ruzickap/k8s-sockshop/commit/636f4f6a566e075b1355c9253c9ceaae205bb2ed)
 - Adding GitHub Workflow instead of TravisCI [`d40a343`](https://github.com/ruzickap/k8s-sockshop/commit/d40a343893fc98c6196c55f9952c8555fca6c2ae)
 - README Requirements updated [`8069f5c`](https://github.com/ruzickap/k8s-sockshop/commit/8069f5cf0a8fedefdb161f9780f5dbe6e8fa7a5d)
-- Replace deployment name (podinfo -&gt; front-end) [`5c1d9c5`](https://github.com/ruzickap/k8s-sockshop/commit/5c1d9c5f1a232a5d3c6af3a944833534409a8ba2)
 - Adding Asciinema and YouTube links [`275b938`](https://github.com/ruzickap/k8s-sockshop/commit/275b938a70b8929ae0fb7d325761176b1758d051)
 - Fix Flux timeouts in run-k8s-part2.sh by adding FLUX_TIMEOUT [`1d96087`](https://github.com/ruzickap/k8s-sockshop/commit/1d96087c2be6730c7c756414e7fa4873a811e0f9)
 - Adding few screenshots [`91601b8`](https://github.com/ruzickap/k8s-sockshop/commit/91601b89e9a14ee79908b78d77b73f877c6dff9a)
@@ -53,7 +67,6 @@
 - Increase FLUX_TIMEOUT [`fefae60`](https://github.com/ruzickap/k8s-sockshop/commit/fefae6084fbfc6b065cc2fb7e20addd59779768c)
 - Adding /dev/null to browser commands [`89d5786`](https://github.com/ruzickap/k8s-sockshop/commit/89d57862ccf450aaa3fa51fe090f41cac6e2f644)
 - Fix Flux terraform code [`29dda1e`](https://github.com/ruzickap/k8s-sockshop/commit/29dda1e4db3625de79a26bf2534389f859eea866)
-- Merge branch 'master' of github.com:ruzickap/k8s-sockshop [`194f0f3`](https://github.com/ruzickap/k8s-sockshop/commit/194f0f3e69cb0dc96cbfb4b6c7f7cba7c71f5971)
 - Adding part-03 + few terraform code changes [`a648645`](https://github.com/ruzickap/k8s-sockshop/commit/a648645bf898d921b0f8fbcd74072fd149e3bcac)
 - Initial document commit [`1a83eae`](https://github.com/ruzickap/k8s-sockshop/commit/1a83eae818e7f4bc60d27829298e3d2a3b35cfc0)
 - Initial commit [`506ba1e`](https://github.com/ruzickap/k8s-sockshop/commit/506ba1ed6c2379bb23cab6b9aeeea992490296e8)
