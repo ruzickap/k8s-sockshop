@@ -54,7 +54,7 @@ data "helm_repository" "flux" {
 resource "helm_release" "flux" {
   depends_on = [null_resource.flux_crds, kubernetes_cluster_role_binding.tiller, kubernetes_secret.docker-config-flux]
   name       = "flux"
-  repository = "${data.helm_repository.flux.metadata.0.name}"
+  repository = data.helm_repository.flux.metadata.0.name
   chart      = "fluxcd/flux"
   version    = var.helm_flux_version
   namespace  = kubernetes_namespace.flux.id

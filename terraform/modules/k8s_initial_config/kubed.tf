@@ -6,7 +6,7 @@ data "helm_repository" "kubed" {
 resource "helm_release" "kubed" {
   depends_on = [null_resource.cert-manager-certificate-label, kubernetes_cluster_role_binding.tiller]
   name       = "kubed"
-  repository = "${data.helm_repository.kubed.metadata.0.name}"
+  repository = data.helm_repository.kubed.metadata.0.name
   chart      = "kubed"
   version    = var.helm_kubed_version
   namespace  = "kubed"

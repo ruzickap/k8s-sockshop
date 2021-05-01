@@ -25,7 +25,7 @@ data "helm_repository" "flagger" {
 resource "helm_release" "flagger" {
   depends_on = [null_resource.flagger_crds, kubernetes_cluster_role_binding.tiller]
   name       = "flagger"
-  repository = "${data.helm_repository.flagger.metadata.0.name}"
+  repository = data.helm_repository.flagger.metadata.0.name
   chart      = "flagger"
   version    = var.helm_flagger_version
   namespace  = kubernetes_namespace.istio-system.id
@@ -43,7 +43,7 @@ resource "helm_release" "flagger" {
 resource "helm_release" "flagger-grafana" {
   depends_on = [kubernetes_cluster_role_binding.tiller]
   name       = "flagger-grafana"
-  repository = "${data.helm_repository.flagger.metadata.0.name}"
+  repository = data.helm_repository.flagger.metadata.0.name
   chart      = "flagger/grafana"
   version    = var.helm_flagger-grafana_version
   namespace  = kubernetes_namespace.istio-system.id
