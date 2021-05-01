@@ -55,7 +55,7 @@ resource "helm_release" "external-dns" {
   }
   set {
     name  = "resourceGroup"
-    value = "${var.resource_group_name_dns}"
+    value = var.resource_group_name_dns
   }
   set {
     name  = "domainFilters"
