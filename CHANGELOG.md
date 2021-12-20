@@ -1,5 +1,18 @@
 # Changelog
 
+## [v0.1.1](https://github.com/ruzickap/k8s-sockshop/compare/v0.1.0...v0.1.1) (2021-12-20)
+
+- Improve GH Action files [`#92`](https://github.com/ruzickap/k8s-sockshop/pull/92)
+- Update npm [`#91`](https://github.com/ruzickap/k8s-sockshop/pull/91)
+- Fix linter issues [`#90`](https://github.com/ruzickap/k8s-sockshop/pull/90)
+- Use super-linter:slim [`#89`](https://github.com/ruzickap/k8s-sockshop/pull/89)
+- Use new terraform syntax [`#88`](https://github.com/ruzickap/k8s-sockshop/pull/88)
+- Upgrade GH Actions versions [`#87`](https://github.com/ruzickap/k8s-sockshop/pull/87)
+- npm update [`#86`](https://github.com/ruzickap/k8s-sockshop/pull/86)
+- Upgrade action-my-broken-link-checker [`#75`](https://github.com/ruzickap/k8s-sockshop/pull/75)
+- Fix My Broken Link Checker parameter [`#65`](https://github.com/ruzickap/k8s-sockshop/pull/65)
+- Update package-lock.json [`#64`](https://github.com/ruzickap/k8s-sockshop/pull/64)
+
 ## [v0.1.0](https://github.com/ruzickap/k8s-sockshop/compare/v0.0.1...v0.1.0) (2020-09-17)
 
 - Add new line to periodic-broken-link-checks.yml [`#62`](https://github.com/ruzickap/k8s-sockshop/pull/62)
@@ -13,7 +26,6 @@
 - Bump @vuepress/plugin-medium-zoom from 1.4.1 to 1.5.0 [`#26`](https://github.com/ruzickap/k8s-sockshop/pull/26)
 - Bump vuepress from 1.4.1 to 1.5.0 [`#28`](https://github.com/ruzickap/k8s-sockshop/pull/28)
 - Ignore CHANGELOG.md when doing markdown checks [`#29`](https://github.com/ruzickap/k8s-sockshop/pull/29)
-- CHANGELOG file update [`#25`](https://github.com/ruzickap/k8s-sockshop/pull/25)
 
 ## v0.0.1 (2020-05-11)
 
