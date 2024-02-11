@@ -1,8 +1,8 @@
-variable "accesskeyid" {}
+# variable "accesskeyid" {}
 
-variable "cloud_platform" {
-  default = "aws"
-}
+# variable "cloud_platform" {
+#   default = "aws"
+# }
 
 variable "dns_zone_name" {
   default = "mylabs.dev"
@@ -13,19 +13,19 @@ variable "kubernetes_cluster_name" {
   default     = "k8s"
 }
 
-variable "letsencrypt_environment" {
-  default = "staging"
-}
+# variable "letsencrypt_environment" {
+#   default = "staging"
+# }
 
-variable "location" {
-  default = "eu-central-1"
-}
+# variable "location" {
+#   default = "eu-central-1"
+# }
 
 variable "prefix" {
   default = "mytest"
 }
 
-variable "secret_access_key" {}
+# variable "secret_access_key" {}
 
 variable "ssh_public_key" {
   default = "~/.ssh/id_rsa.pub"
