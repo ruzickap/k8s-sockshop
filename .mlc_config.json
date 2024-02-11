@@ -1,0 +1,19 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "(http|https)://.*mylabs.dev"
+    },
+    {
+      "pattern": "(http|https)://.*myexample.dev"
+    },
+    {
+      "pattern": "(http|https)://localhost"
+    },
+    {
+      "pattern": "https://github.com/ruzickap/k8s-flux-repository"
+    },
+    {
+      "pattern": "https://github.com/ruzickap/front-end"
+    }
+  ]
+}
