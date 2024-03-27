@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.2.0](https://github.com/ruzickap/k8s-sockshop/compare/v0.1.1...v0.2.0) (2024-03-27)
+
+
+### Features
+
+* **gh:** add default GitHub repo files ([#165](https://github.com/ruzickap/k8s-sockshop/issues/165)) ([949af70](https://github.com/ruzickap/k8s-sockshop/commit/949af706a3e075265b0c4293d4fb93757d35ed18))
+* **gh:** add default GitHub repo files ([#166](https://github.com/ruzickap/k8s-sockshop/issues/166)) ([1078a92](https://github.com/ruzickap/k8s-sockshop/commit/1078a920dacb16091f78cf60f384c59ff01b2fe5))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#162](https://github.com/ruzickap/k8s-sockshop/issues/162)) ([9a2bd5b](https://github.com/ruzickap/k8s-sockshop/commit/9a2bd5beb39ac69444e83ad5ddd09023576b9b56))
+
+
+### Bug Fixes
+
+* **tekton:** fix tekton linter ([#164](https://github.com/ruzickap/k8s-sockshop/issues/164)) ([8e48515](https://github.com/ruzickap/k8s-sockshop/commit/8e48515c813b018aa2cbde0dbadce44e859c8dc6))
+
 ## [v0.1.1](https://github.com/ruzickap/k8s-sockshop/compare/v0.1.0...v0.1.1) (2021-12-20)
 
 - Improve GH Action files [`#92`](https://github.com/ruzickap/k8s-sockshop/pull/92)
