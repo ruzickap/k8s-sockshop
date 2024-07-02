@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.2.0](https://github.com/ruzickap/k8s-sockshop/compare/v0.1.1...v0.2.0) (2024-07-02)
+
+
+### Features
+
+* **gh:** add default GitHub repo files ([#165](https://github.com/ruzickap/k8s-sockshop/issues/165)) ([949af70](https://github.com/ruzickap/k8s-sockshop/commit/949af706a3e075265b0c4293d4fb93757d35ed18))
+* **gh:** add default GitHub repo files ([#166](https://github.com/ruzickap/k8s-sockshop/issues/166)) ([1078a92](https://github.com/ruzickap/k8s-sockshop/commit/1078a920dacb16091f78cf60f384c59ff01b2fe5))
+* **gha:** unify GHA - renovate, megalinter, markdown, and others ([#162](https://github.com/ruzickap/k8s-sockshop/issues/162)) ([9a2bd5b](https://github.com/ruzickap/k8s-sockshop/commit/9a2bd5beb39ac69444e83ad5ddd09023576b9b56))
+* **gha:** update gha + add ignore-unfixed to trivy ([#178](https://github.com/ruzickap/k8s-sockshop/issues/178)) ([b703fe3](https://github.com/ruzickap/k8s-sockshop/commit/b703fe3d3eb17a95d54c3d4b0fc4781b81d53823))
+
+
+### Bug Fixes
+
+* add CVE-2024-4068 to .trivyignore.yaml ([#187](https://github.com/ruzickap/k8s-sockshop/issues/187)) ([93f676c](https://github.com/ruzickap/k8s-sockshop/commit/93f676cadf37490d367f0d2b157bcafc3c2d4036))
+* **doc:** fix k8s logo url ([#180](https://github.com/ruzickap/k8s-sockshop/issues/180)) ([de186f1](https://github.com/ruzickap/k8s-sockshop/commit/de186f1bd59e5831bb65ceb0b0586c5eec0167d1))
+* **tekton:** fix tekton linter ([#164](https://github.com/ruzickap/k8s-sockshop/issues/164)) ([8e48515](https://github.com/ruzickap/k8s-sockshop/commit/8e48515c813b018aa2cbde0dbadce44e859c8dc6))
+* **url:** exclude package-lock.json from URL checks ([#184](https://github.com/ruzickap/k8s-sockshop/issues/184)) ([3e4aca4](https://github.com/ruzickap/k8s-sockshop/commit/3e4aca4b6529172968798944f9fbeb3ed3e51a14))
+
 ## [v0.1.1](https://github.com/ruzickap/k8s-sockshop/compare/v0.1.0...v0.1.1) (2021-12-20)
 
 - Improve GH Action files [`#92`](https://github.com/ruzickap/k8s-sockshop/pull/92)
